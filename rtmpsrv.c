@@ -1077,6 +1077,8 @@ main(int argc, char **argv)
 
   char *rtmpStreamingDevice = DEFAULT_HTTP_STREAMING_DEVICE;	// streaming device, default 0.0.0.0
   int nRtmpStreamingPort = 1935;	// port
+  if (getenv("RTMPPORT"))
+    nRtmpStreamingPort = atoi(getenv("RTMPPORT"));
 
   RTMP_LogPrintf("RTMP Server %s\n", RTMPDUMP_VERSION);
   RTMP_LogPrintf("(c) 2010 Andrej Stepanchuk, Howard Chu; license: GPL\n\n");
